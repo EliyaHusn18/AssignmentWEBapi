@@ -12,13 +12,10 @@ include 'db.php';
 // Default value if API fails
 $exchangeRate = "Unavailable";
 
-// Your ExchangeRate-API key
 $exchangeApiKey = "e654053973def6d9015b2ae9";
 
-// API endpoint
 $exchangeUrl = "https://v6.exchangerate-api.com/v6/$exchangeApiKey/latest/USD";
 
-// Send GET request
 $exchangeResponse = @file_get_contents($exchangeUrl);
 
 if ($exchangeResponse !== false) {
@@ -63,12 +60,10 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
 // Execute request
 $response = curl_exec($ch);
 
-// Check for cURL errors
 if (curl_errno($ch)) {
     $shippingCost = "cURL Error";
 }
 
-// Close cURL
 curl_close($ch);
 
 // Decode JSON response
@@ -139,4 +134,5 @@ if ($result->num_rows > 0) {
 </table>
 
 </body>
+
 </html>
